@@ -27,7 +27,7 @@ async def predict_sales(start_date: str = Form(...), end_date: str = Form(...)):
     start_date = datetime.strptime(start_date, '%Y-%m-%d')
     end_date = datetime.strptime(end_date, '%Y-%m-%d')
     
-    train_df = pd.read_csv(r'E:\retail\train_data.csv', parse_dates=['date'])
+    train_df = pd.read_csv(r'train_data.csv', parse_dates=['date'])
     store_sales = train_df.copy()
     store_sales = store_sales.set_index('date').to_period('D')
     store_sales = store_sales.set_index(['state', 'category_of_product'], append=True)
