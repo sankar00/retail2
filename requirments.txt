@@ -1,0 +1,9 @@
+fastapi
+uvicorn
+numpy
+pandas
+jinja2templates
+scikit-learn
+matplotlib
+statsmodels
+pydantic

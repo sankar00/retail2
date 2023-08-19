@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Predict Sales</title>
+    <link rel="stylesheet" href="{{ url_for('static', path='style.css') }}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr@4.6.9/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr@4.6.9/dist/flatpickr.min.js"></script>
+</head>
+<body>
+    <h1>Predict Sales</h1>
+    <form id="date-form" action="/predict/" method="post">
+        <label for="start_date">Start Date:</label>
+        <input type="text" id="start_date" name="start_date" required><br><br>
+
+        <label for="end_date">End Date:</label>
+        <input type="text" id="end_date" name="end_date" required><br><br>
+
+        <button type="submit">Predict</button>
+    </form>
+    
+    <div id="chart-container">
+        {% if chart_image %}
+        <img src="{{ chart_image }}" alt="Predicted Sales Chart">
+        {% endif %}
+    </div>
+    
+    <script>
+        flatpickr("#start_date", {
+            dateFormat: "Y-m-d"
+        });
+
+        flatpickr("#end_date", {
+            dateFormat: "Y-m-d"
+        });
+    </script>
+</body>
+</html>
